@@ -51,22 +51,25 @@ public class AddBlights
         
         for(int i = 1; i <= len; i++){
             temp = l1.get(l1.size()-i) + l2.get(l2.size()-i)+plusnum;
+            plusnum = 0;
             if(temp >= 10){
-                plusnum = temp%10;
+                plusnum = 1;
                 temp = temp-10;
             }
             list3.add(0,temp);
         }
-        
+       
         if(l1.size()>l2.size()){
             for(int i = 0; i < re; i++){
-                list3.add(0,l1.get(i));
+                list3.add(0,l1.get(i)+plusnum);
             }
         }else if(l2.size()>l1.size()){
             for(int i = 0; i < re; i++){
-                list3.add(0,l2.get(i));
+                list3.add(0,l2.get(i)+plusnum);
             }
-        }    
+        }else if(l1.size() == l2.size() && plusnum > 0){
+            list3.add(0,plusnum);
+        }   
         
         
         
